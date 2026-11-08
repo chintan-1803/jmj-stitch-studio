@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Compliments That Speak for Themselves",
+    "description": "A delighted customer shared that Vaishali’s blouse designs received many compliments and described her as a favourite Indian wear designer in Australia.",
+    "category": "Design & appreciation",
+    "image": "assets/feedback/feedback-01.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Beautiful Work, Thoughtful Service",
+    "description": "A happy customer appreciated the affordable, meticulous sari blouse stitching, immediate fitting adjustments and warm, welcoming service.",
+    "category": "Quality & affordability",
+    "image": "assets/feedback/feedback-02.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Perfect Fit, Delivered Ahead of Time",
+    "description": "Praised for precise finishing, perfect fitting, professionalism and completing time-sensitive tailoring ahead of the deadline.",
+    "category": "Precision & timeliness",
+    "image": "assets/feedback/feedback-03.jpg"
+  },
+  {
+    "id": 4,
+    "title": "A Perfect Fit, Even at Short Notice",
+    "description": "A customer thanked Vaishali for stitching a blouse on short notice, with an excellent fit that required no adjustments.",
+    "category": "Urgent stitching",
+    "image": "assets/feedback/feedback-04.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Loved the Fit, Ready for the Next!",
+    "description": "A delighted customer loved the fitting of her blouse and was already looking forward to placing another order.",
+    "category": "Customer satisfaction",
+    "image": "assets/feedback/feedback-05.jpg"
+  }
+]
