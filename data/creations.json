@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Creation 01",
+    "image": "assets/creations/creation-01.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 1"
+  },
+  {
+    "id": 2,
+    "title": "Creation 02",
+    "image": "assets/creations/creation-02.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 2"
+  },
+  {
+    "id": 3,
+    "title": "Creation 03",
+    "image": "assets/creations/creation-03.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 3"
+  },
+  {
+    "id": 4,
+    "title": "Creation 04",
+    "image": "assets/creations/creation-04.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 4"
+  },
+  {
+    "id": 5,
+    "title": "Creation 05",
+    "image": "assets/creations/creation-05.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 5"
+  },
+  {
+    "id": 6,
+    "title": "Creation 06",
+    "image": "assets/creations/creation-06.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 6"
+  },
+  {
+    "id": 7,
+    "title": "Creation 07",
+    "image": "assets/creations/creation-07.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 7"
+  },
+  {
+    "id": 8,
+    "title": "Creation 08",
+    "image": "assets/creations/creation-08.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 8"
+  },
+  {
+    "id": 9,
+    "title": "Creation 09",
+    "image": "assets/creations/creation-09.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 9"
+  },
+  {
+    "id": 10,
+    "title": "Creation 10",
+    "image": "assets/creations/creation-10.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 10"
+  },
+  {
+    "id": 11,
+    "title": "Creation 11",
+    "image": "assets/creations/creation-11.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 11"
+  },
+  {
+    "id": 12,
+    "title": "Creation 12",
+    "image": "assets/creations/creation-12.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 12"
+  },
+  {
+    "id": 13,
+    "title": "Creation 13",
+    "image": "assets/creations/creation-13.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 13"
+  },
+  {
+    "id": 14,
+    "title": "Creation 14",
+    "image": "assets/creations/creation-14.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 14"
+  },
+  {
+    "id": 15,
+    "title": "Creation 15",
+    "image": "assets/creations/creation-15.jpg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 15"
+  }
+]
