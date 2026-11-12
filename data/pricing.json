@@ -7,42 +7,57 @@
       "subcategories": [
         {
           "name": "Simple Blouse",
-          "price": null,
+          "price": 45,
           "priceType": "tbd"
         },
         {
           "name": "Blouse with Lining",
-          "price": null,
+          "price": 60,
           "priceType": "tbd"
         },
         {
           "name": "Padded Blouse",
-          "price": null,
+          "price": 75,
           "priceType": "tbd"
         },
         {
-          "name": "Princess Cut Blouse",
-          "price": null,
+          "name": "Madhubala Blouse",
+          "price": 110,
           "priceType": "tbd"
         },
         {
-          "name": "Designer Blouse",
-          "price": null,
+          "name": "Stand Collar Blouse",
+          "price": 90,
           "priceType": "tbd"
         },
         {
-          "name": "Fancy Back Neck Blouse",
-          "price": null,
+          "name": "Jacket Blouse",
+          "price": 80,
           "priceType": "tbd"
         },
         {
-          "name": "Blouse with Special Sleeves",
-          "price": null,
+          "name": "Puff Sleeve Blouse",
+          "price": 70,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Princess Cut with Belt Blouse",
+          "price": 75,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Long Blouse",
+          "price": 80,
+          "priceType": "tbd"
+        },
+        {
+          "name": "BothPeck Neck Blouse",
+          "price": 60,
           "priceType": "tbd"
         },
         {
           "name": "Bridal / Heavy Designer Blouse",
-          "price": null,
+          "price": 100,
           "priceType": "tbd"
         }
       ]
@@ -52,28 +67,53 @@
       "name": "Alterations & Fittings",
       "subcategories": [
         {
+          "name": "Saree Fall",
+          "price": 25,
+          "priceType": "tbd"
+        },
+        {
           "name": "Blouse Alteration",
-          "price": null,
+          "price": 10,
           "priceType": "tbd"
         },
         {
           "name": "Dress Alteration",
-          "price": null,
+          "price": 10,
           "priceType": "tbd"
         },
         {
           "name": "Trouser / Pant Length Adjustment",
-          "price": null,
+          "price": 10,
           "priceType": "tbd"
         },
         {
           "name": "Waist Adjustment",
-          "price": null,
+          "price": 10,
           "priceType": "tbd"
         },
         {
           "name": "Sleeve Adjustment",
-          "price": null,
+          "price": 10,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Sleeve Attachment",
+          "price": 15,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Jeans Alternations",
+          "price": 15,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Zip Replacements",
+          "price": 15,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Western Wear Alterations",
+          "price": 10,
           "priceType": "tbd"
         }
       ]
@@ -84,22 +124,22 @@
       "subcategories": [
         {
           "name": "Kurti Stitching",
-          "price": null,
+          "price": 35,
           "priceType": "tbd"
         },
         {
           "name": "Salwar Suit Stitching",
-          "price": null,
+          "price": 45,
           "priceType": "tbd"
         },
         {
           "name": "Lehenga Stitching",
-          "price": null,
+          "price": 100,
           "priceType": "tbd"
         },
         {
           "name": "Palazzo Stitching",
-          "price": null,
+          "price": 20,
           "priceType": "tbd"
         }
       ]
@@ -110,33 +150,12 @@
       "subcategories": [
         {
           "name": "Dress Stitching",
-          "price": null,
+          "price": 50,
           "priceType": "tbd"
         },
         {
           "name": "Top Stitching",
-          "price": null,
-          "priceType": "tbd"
-        },
-        {
-          "name": "Western Wear Alterations",
-          "price": null,
-          "priceType": "tbd"
-        }
-      ]
-    },
-    {
-      "id": "kids",
-      "name": "Kids’ Clothing",
-      "subcategories": [
-        {
-          "name": "Kids Frock",
-          "price": null,
-          "priceType": "tbd"
-        },
-        {
-          "name": "Kids Outfit Stitching",
-          "price": null,
+          "price": 30,
           "priceType": "tbd"
         }
       ]
