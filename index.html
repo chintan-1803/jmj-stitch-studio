@@ -1801,6 +1801,34 @@
                 margin-top: 30px
             }
         }
+
+        /* V10.3: one independent expand/collapse control per section */
+        .section-collapse-actions {
+            display: flex;
+            justify-content: flex-end;
+            max-width: 850px;
+            margin: 0 auto 12px;
+        }
+
+        .section-collapse-toggle {
+            font: 700 14px var(--font-ui);
+            color: var(--maroon);
+            background: transparent;
+            border: 1px solid #b99058;
+            border-radius: 7px;
+            padding: 10px 17px;
+            min-height: 44px;
+            cursor: pointer;
+        }
+
+            .section-collapse-toggle:hover, .section-collapse-toggle:focus-visible {
+                background: #f3e3ce;
+                outline-offset: 3px;
+            }
+
+            .section-collapse-toggle[hidden] {
+                display: none;
+            }
     </style>
 </head>
 <body>
@@ -2033,6 +2061,7 @@
             <div class="eyebrow">TRANSPARENT &amp; THOUGHTFUL</div>
             <h2 id="pricing-heading">Indicative Pricing</h2>
             <p class="intro">Explore our stitching and alteration services. Prices are shown in Australian dollars (AUD).</p>
+            <div class="section-collapse-actions"><button type="button" class="section-collapse-toggle" data-collapse-target="pricingGrid" aria-controls="pricingGrid" hidden>Expand All</button></div>
             <div id="pricingGrid" class="pricing-grid" aria-live="polite">
                 <p>Loading our pricing information…</p>
             </div>
@@ -2283,13 +2312,13 @@
             </div>
         </div>
     </section>
-    <section id="faqs">
+    <section id="faqs" aria-labelledby="faqs-heading">
         <div class="wrap">
             <div class="center">
                 <div class="eyebrow">
                     HERE TO HELP
                 </div>
-                <h2>
+                <h2 id="faqs-heading">
                     Frequently Asked Questions
                 </h2>
                 <p class="subtitle">
@@ -2299,7 +2328,8 @@
                     Find answers to common questions about our stitching services, appointments, fittings and more.
                 </p>
             </div>
-            <div style="max-width:850px;margin:auto">
+            <div class="section-collapse-actions faq-collapse-actions"><button type="button" class="section-collapse-toggle" data-collapse-target="faqItems" aria-controls="faqItems">Expand All</button></div>
+            <div id="faqItems" style="max-width:850px;margin:auto">
                 <details open="">
                     <summary>
                         What stitching and alteration services do you offer?
@@ -2943,9 +2973,7 @@
             };
             const priceLabel = (item) => {
                 if (item.price === null || item.price === undefined || item.price === '') return 'TBD';
-                if (item.priceType === 'quote') return 'Quote on Request';
-                const value = typeof item.price === 'number' ? '$' + item.price.toFixed(2).replace(/\.00$/, '') : String(item.price);
-                return item.priceType === 'from' ? 'From ' + value : value;
+                return typeof item.price === 'number' ? '$' + item.price.toFixed(2).replace(/\.00$/, '') : String(item.price);
             };
             fetch('data/pricing.json', { cache: 'no-cache' })
                 .then(response => { if (!response.ok) throw new Error('HTTP ' + response.status); return response.json(); })
@@ -2986,6 +3014,37 @@
                     console.error('JMJ pricing could not be loaded:', error);
                     container.replaceChildren(make('p', '', 'Pricing information is temporarily unavailable. Please contact us for a quote.'));
                 });
+        })();
+    </script>
+
+    <script>
+        /* V10.3: scoped controls for Pricing and FAQs; works with dynamically loaded pricing. */
+        (function () {
+            document.querySelectorAll('[data-collapse-target]').forEach(function (button) {
+                const container = document.getElementById(button.dataset.collapseTarget);
+                if (!container) return;
+                const getItems = () => Array.from(container.querySelectorAll('details'));
+                const sync = () => {
+                    const items = getItems();
+                    button.hidden = items.length === 0;
+                    if (items.length) {
+                        const allOpen = items.every(item => item.open);
+                        button.textContent = allOpen ? 'Collapse All' : 'Expand All';
+                        button.setAttribute('aria-label', button.textContent + ' in ' + (container.id === 'pricingGrid' ? 'Pricing' : 'FAQs'));
+                    }
+                };
+                button.addEventListener('click', function () {
+                    const items = getItems();
+                    const shouldOpen = !items.every(item => item.open);
+                    items.forEach(item => { item.open = shouldOpen; });
+                    sync();
+                });
+                container.addEventListener('toggle', sync, true);
+                if (container.id === 'pricingGrid') {
+                    new MutationObserver(sync).observe(container, { childList: true });
+                }
+                sync();
+            });
         })();
     </script>
 </body>
