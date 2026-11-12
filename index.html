@@ -1702,6 +1702,105 @@
                 padding: 4px 16px 14px
             }
         }
+
+        /* V10: Vision & Mission, consistent with the maroon / antique-gold boutique theme. */
+        .jmj-purpose {
+            background: #fbf3e9;
+            color: var(--ink)
+        }
+
+            .jmj-purpose .intro {
+                margin-bottom: 32px
+            }
+
+        .jmj-purpose-grid {
+            display: grid;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 22px
+        }
+
+        .jmj-purpose-card {
+            background: #fff9f1;
+            border: 1px solid #e6d5bf;
+            border-top: 3px solid var(--gold);
+            border-radius: 13px;
+            padding: 32px;
+            box-shadow: 0 10px 32px #390b0a0b
+        }
+
+        .jmj-purpose-icon {
+            font-size: 25px;
+            color: #a67942;
+            line-height: 1
+        }
+
+        .jmj-purpose-card h3 {
+            color: var(--maroon);
+            margin: 12px 0 14px
+        }
+
+        .jmj-purpose-card p {
+            font-family: var(--font-editorial) !important;
+            font-size: 16px;
+            line-height: 1.9;
+            margin: 0
+        }
+
+        .jmj-values-heading {
+            margin: 42px 0 18px
+        }
+
+            .jmj-values-heading h3 {
+                color: var(--maroon)
+            }
+
+        .jmj-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3,minmax(0,1fr));
+            gap: 18px
+        }
+
+        .jmj-value {
+            text-align: center;
+            padding: 18px 14px;
+            border-radius: 10px;
+            background: #f7e9d7
+        }
+
+            .jmj-value span {
+                font-size: 29px;
+                color: #9e7441
+            }
+
+            .jmj-value h4 {
+                font: 700 16px/1.5 var(--font-ui);
+                color: var(--maroon);
+                margin: 8px 0
+            }
+
+            .jmj-value p {
+                font: 400 15px/1.7 var(--font-editorial);
+                margin: 0
+            }
+
+        @media(max-width:700px) {
+            .jmj-purpose-grid {
+                grid-template-columns: 1fr
+            }
+
+            .jmj-purpose-card {
+                padding: 24px
+            }
+
+            .jmj-values-grid {
+                grid-template-columns: 1fr;
+                gap: 10px
+            }
+
+            .jmj-values-heading {
+                margin-top: 30px
+            }
+        }
     </style>
 </head>
 <body>
@@ -1731,9 +1830,6 @@
                 </a>
                 <a href="#creations">
                     Creations
-                </a>
-                <a href="#why">
-                    Why JMJ
                 </a>
                 <a href="#process">
                     How It Works
@@ -1821,6 +1917,29 @@
                         JMJ Stitch Studio · By Woman, For Women
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- V10: Vision, mission and values — inclusive of Indian and Western clothing. -->
+    <section id="vision-mission" class="jmj-purpose" aria-labelledby="purpose-heading">
+        <div class="wrap">
+            <div class="center intro">
+                <div class="eyebrow">WHAT WE BELIEVE</div>
+                <h2 id="purpose-heading">Our Vision &amp; Mission</h2>
+                <p class="subtitle">Every Stitch, Made with Care.</p>
+            </div>
+            <div class="jmj-purpose-grid">
+                <article class="jmj-purpose-card">
+                    <div class="jmj-purpose-icon" aria-hidden="true">✦</div>
+                    <h3>Our Vision</h3>
+                    <p>To become a trusted name in Adelaide for quality stitching, custom clothing and alterations, where every woman can enjoy beautifully fitted outfits that reflect her individual style, personality and confidence.</p>
+                </article>
+                <article class="jmj-purpose-card">
+                    <div class="jmj-purpose-icon" aria-hidden="true">✦</div>
+                    <h3>Our Mission</h3>
+                    <p>To bring our customers' clothing ideas to life through skilled craftsmanship, personalised fittings and attention to detail. From elegant Indian traditional wear to modern Western outfits and everyday alterations, we aim to deliver comfort, quality and customer satisfaction in every stitch.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -1941,98 +2060,6 @@
                     View More Creations (9) ↓
                 </button>
             </p>
-        </div>
-    </section>
-    <section class="dark reasons" id="why">
-        <div class="wrap center">
-            <div class="eyebrow">
-                THE JMJ DIFFERENCE
-            </div>
-            <h2>
-                Why Choose JMJ Stitch Studio?
-            </h2>
-            <p class="subtitle">
-                By Woman, For Women
-            </p>
-            <p class="intro">
-                Because every woman deserves an outfit that fits beautifully, feels comfortable and reflects her personal style.
-            </p>
-            <div class="cards">
-                <div class="card">
-                    <div class="symbol">
-                        ✦
-                    </div>
-                    <h3>
-                        A Passion Since 2008
-                    </h3>
-                    <p>
-                        Years of hands-on learning and stitching experience.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="symbol">
-                        ✦
-                    </div>
-                    <h3>
-                        Made for Your Fit
-                    </h3>
-                    <p>
-                        Measurements and preferences considered with care.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="symbol">
-                        ✦
-                    </div>
-                    <h3>
-                        Trusted by Customers
-                    </h3>
-                    <p>
-                        Proudly serving 50+ regular customers in Adelaide.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="symbol">
-                        ✦
-                    </div>
-                    <h3>
-                        Indian &amp; Western Wear
-                    </h3>
-                    <p>
-                        A versatile approach to different styles and garments.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="symbol">
-                        ✦
-                    </div>
-                    <h3>
-                        Craftsmanship with Care
-                    </h3>
-                    <p>
-                        Attention to detail, comfort and finishing.
-                    </p>
-                </div>
-                <div class="card">
-                    <div class="symbol">
-                        ✦
-                    </div>
-                    <h3>
-                        A Personal Experience
-                    </h3>
-                    <p>
-                        Friendly, thoughtful communication throughout.
-                    </p>
-                </div>
-            </div>
-            <div class="callout">
-                <h3>
-                    More Than Just a Perfect Fit
-                </h3>
-                <p>
-                    We believe beautiful stitching starts with understanding you—your style, comfort and confidence—and ends with your satisfaction.
-                </p>
-            </div>
         </div>
     </section>
     <section class="dark" id="process" style="background:#501915">
