@@ -131,6 +131,19 @@ body.story-dialog-open{overflow:hidden}
 .story-dialog-foot{flex:none;padding:13px 28px;background:#f4e8d7;border-top:1px solid #e4c9a5;text-align:center;font:700 12px 'Nunito Sans',sans-serif;letter-spacing:.06em;color:#784b31}
 @media(max-width:600px){.story-dialog{padding:10px}.story-dialog-panel{max-height:94dvh}.story-dialog-head{padding:18px 17px 14px}.story-dialog-body{padding:20px 18px;font-size:16px;line-height:1.75}.story-dialog-close{min-width:44px;min-height:44px}.story-dialog-foot{padding:12px}}
 @media(prefers-reduced-motion:reduce){.story-read-btn{transition:none}}
+
+/* V9: JSON-driven indicative pricing. Uses existing boutique colours and fonts. */
+.pricing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;text-align:left;margin-top:28px}
+.pricing-group{background:#fffaf2;border:1px solid #e4cfb1;border-radius:12px;overflow:hidden}
+.pricing-group summary{padding:20px 22px;cursor:pointer;font:700 18px var(--font-ui)!important;display:flex;align-items:center;justify-content:space-between;gap:12px;list-style:none}
+.pricing-group summary::-webkit-details-marker{display:none}.pricing-group summary::after{content:'+';font-size:25px;color:#976a34}.pricing-group[open] summary::after{content:'−'}
+.pricing-group[open] summary{border-bottom:1px solid #e4cfb1}.pricing-items{padding:6px 22px 18px}
+.pricing-item{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:14px 0;border-bottom:1px solid #eee0cc}.pricing-item:last-child{border:0}
+.pricing-item-name{font:600 15px var(--font-ui);color:var(--maroon)}.pricing-item-note{font:14px/1.6 var(--font-editorial);color:#725c4d;margin:3px 0 0}
+.pricing-item-side{text-align:right;flex-shrink:0}.pricing-value{font:700 16px var(--font-ui);color:var(--ink)}
+.pricing-enquiry{display:inline-block;font:700 13px var(--font-ui);color:#805326;text-decoration:underline;margin-top:5px}
+.pricing-disclaimer{max-width:850px;margin:24px auto 0;font:italic 14px/1.8 var(--font-editorial);color:#755a49}
+@media(max-width:700px){.pricing-grid{grid-template-columns:1fr}.pricing-group summary{padding:16px}.pricing-items{padding:4px 16px 14px}}
   </style>
  </head>
  <body>
@@ -154,6 +167,9 @@ body.story-dialog-open{overflow:hidden}
      </a>
      <a href="#services">
       Services
+     </a>
+     <a href="#pricing">
+      Pricing
      </a>
      <a href="#creations">
       Creations
@@ -329,6 +345,18 @@ body.story-dialog-open{overflow:hidden}
       </p>
      </div>
     </div>
+   </div>
+  </section>
+  <!-- V9: Prices are loaded from data/pricing.json. No actual prices are hardcoded here. -->
+  <section id="pricing" aria-labelledby="pricing-heading">
+   <div class="wrap center">
+    <div class="eyebrow">TRANSPARENT &amp; THOUGHTFUL</div>
+    <h2 id="pricing-heading">Indicative Pricing</h2>
+    <p class="intro">Explore our stitching and alteration services. Prices are shown in Australian dollars (AUD).</p>
+    <div id="pricingGrid" class="pricing-grid" aria-live="polite">
+     <p>Loading our pricing information…</p>
+    </div>
+    <p class="pricing-disclaimer">Prices are indicative only. Final quotes may vary based on fabric, design, detailing, measurements and the work required. Please contact us for a personalised quote.</p>
    </div>
   </section>
   <section id="creations">
@@ -867,7 +895,10 @@ body.story-dialog-open{overflow:hidden}
        <a href="#services">
         Our Services
        </a>
-       <a href="#creations">
+       <a href="#pricing">
+       Pricing
+      </a>
+      <a href="#creations">
         Our Creations
        </a>
        <a href="#love">
@@ -1245,15 +1276,27 @@ if(menu){menu.addEventListener('click',function(){menu.setAttribute('aria-expand
   }
   function render(items) {
     if (!Array.isArray(items)) throw new Error('Expected creations JSON array');
-    const valid = items.every(item => item && Number.isSafeInteger(item.id) && item.id > 0 &&
-      typeof item.title === 'string' && typeof item.alt === 'string' &&
-      typeof item.image === 'string' && /^assets\/creations\/[a-zA-Z0-9_-]+\.(jpg|jpeg|png|webp)$/i.test(item.image));
-    if (!valid || new Set(items.map(item => item.id)).size !== items.length) throw new Error('Invalid or duplicate creation entries');
-    window.jmjCreations = items;
-    patterns = items.map(item => item.image);
-    if (!items.length) { message('New creations coming soon.'); return; }
+    /* Validate entries individually so one typo does not hide the whole gallery.
+       Supported formats: JPG, JPEG, PNG and WebP. IDs must be unique. */
+    const seenIds = new Set();
+    const validItems = items.filter((item, index) => {
+      const valid = item && Number.isSafeInteger(item.id) && item.id > 0 &&
+        typeof item.title === 'string' && typeof item.alt === 'string' &&
+        typeof item.image === 'string' &&
+        /^assets\/creations\/[a-zA-Z0-9_-]+\.(jpg|jpeg|png|webp)$/i.test(item.image) &&
+        !seenIds.has(item.id);
+      if (!valid) {
+        console.warn('JMJ creations: skipping invalid or duplicate entry at JSON index', index, item);
+        return false;
+      }
+      seenIds.add(item.id);
+      return true;
+    });
+    window.jmjCreations = validItems;
+    patterns = validItems.map(item => item.image);
+    if (!validItems.length) { message('New creations coming soon.'); return; }
     const fragment = document.createDocumentFragment();
-    items.forEach((item, index) => {
+    validItems.forEach((item, index) => {
       const card = document.createElement('div');
       card.className = 'gallery-item';
       card.id = 'creation-' + String(item.id).padStart(2, '0');
@@ -1284,8 +1327,8 @@ if(menu){menu.addEventListener('click',function(){menu.setAttribute('aria-expand
     });
     grid.replaceChildren(fragment);
     if (toggle) {
-      toggle.classList.toggle('hidden', items.length <= initialCount);
-      toggle.textContent = `View More Creations (${Math.max(0, items.length - initialCount)}) ↓`;
+      toggle.classList.toggle('hidden', validItems.length <= initialCount);
+      toggle.textContent = `View More Creations (${Math.max(0, validItems.length - initialCount)}) ↓`;
     }
     if (typeof window.openLinkedCreation === 'function') window.openLinkedCreation();
   }
@@ -1294,6 +1337,65 @@ if(menu){menu.addEventListener('click',function(){menu.setAttribute('aria-expand
     .then(render)
     .catch(error => { console.error('JMJ creations could not be loaded:', error); message('Our creations are temporarily unavailable. Please try again later.'); });
 })();
+  </script>
+  <script>
+   /* V9: Render pricing categories and subcategories from data/pricing.json.
+      Keep all customer-facing prices as TBD until updated in the JSON file. */
+   (() => {
+     const container = document.getElementById('pricingGrid');
+     if (!container) return;
+     const make = (tag, className, text) => {
+       const el = document.createElement(tag);
+       if (className) el.className = className;
+       if (text !== undefined) el.textContent = text;
+       return el;
+     };
+     const priceLabel = (item) => {
+       if (item.price === null || item.price === undefined || item.price === '') return 'TBD';
+       if (item.priceType === 'quote') return 'Quote on Request';
+       const value = typeof item.price === 'number' ? '$' + item.price.toFixed(2).replace(/\.00$/, '') : String(item.price);
+       return item.priceType === 'from' ? 'From ' + value : value;
+     };
+     fetch('data/pricing.json', {cache:'no-cache'})
+       .then(response => { if (!response.ok) throw new Error('HTTP ' + response.status); return response.json(); })
+       .then(data => {
+         if (!data || !Array.isArray(data.categories)) throw new Error('Expected categories array');
+         const fragment = document.createDocumentFragment();
+         data.categories.forEach(category => {
+           if (!category || typeof category.name !== 'string' || !Array.isArray(category.subcategories)) return;
+           const group = make('details', 'pricing-group');
+           const heading = make('summary', '', category.name);
+           group.appendChild(heading);
+           const items = make('div', 'pricing-items');
+           category.subcategories.forEach(item => {
+             if (!item || typeof item.name !== 'string') return;
+             const row = make('div', 'pricing-item');
+             const left = make('div');
+             left.appendChild(make('div', 'pricing-item-name', item.name));
+             if (item.description) left.appendChild(make('p', 'pricing-item-note', item.description));
+             const right = make('div', 'pricing-item-side');
+             right.appendChild(make('div', 'pricing-value', priceLabel(item)));
+             const link = make('a', 'pricing-enquiry', 'Enquire');
+             const message = 'Jay Mataji! I would like to enquire about ' + item.name + ' (' + category.name + ') at JMJ Stitch Studio.';
+             link.href = 'https://wa.me/61473945892?text=' + encodeURIComponent(message);
+             link.target = '_blank';
+             link.rel = 'noopener noreferrer';
+             link.setAttribute('aria-label', 'Enquire about ' + item.name + ' on WhatsApp');
+             right.appendChild(link);
+             row.append(left, right);
+             items.appendChild(row);
+           });
+           group.appendChild(items);
+           fragment.appendChild(group);
+         });
+         container.replaceChildren(fragment);
+         if (!container.children.length) container.appendChild(make('p', '', 'Pricing information is being updated. Please contact us for a quote.'));
+       })
+       .catch(error => {
+         console.error('JMJ pricing could not be loaded:', error);
+         container.replaceChildren(make('p', '', 'Pricing information is temporarily unavailable. Please contact us for a quote.'));
+       });
+   })();
   </script>
  </body>
 </html>
