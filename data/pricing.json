@@ -1,0 +1,145 @@
+{
+  "currency": "AUD",
+  "categories": [
+    {
+      "id": "blouse",
+      "name": "Blouse Stitching",
+      "subcategories": [
+        {
+          "name": "Simple Blouse",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Blouse with Lining",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Padded Blouse",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Princess Cut Blouse",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Designer Blouse",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Fancy Back Neck Blouse",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Blouse with Special Sleeves",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Bridal / Heavy Designer Blouse",
+          "price": null,
+          "priceType": "tbd"
+        }
+      ]
+    },
+    {
+      "id": "alterations",
+      "name": "Alterations & Fittings",
+      "subcategories": [
+        {
+          "name": "Blouse Alteration",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Dress Alteration",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Trouser / Pant Length Adjustment",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Waist Adjustment",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Sleeve Adjustment",
+          "price": null,
+          "priceType": "tbd"
+        }
+      ]
+    },
+    {
+      "id": "traditional",
+      "name": "Indian Traditional Wear",
+      "subcategories": [
+        {
+          "name": "Kurti Stitching",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Salwar Suit Stitching",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Lehenga Stitching",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Palazzo Stitching",
+          "price": null,
+          "priceType": "tbd"
+        }
+      ]
+    },
+    {
+      "id": "western",
+      "name": "Western Wear",
+      "subcategories": [
+        {
+          "name": "Dress Stitching",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Top Stitching",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Western Wear Alterations",
+          "price": null,
+          "priceType": "tbd"
+        }
+      ]
+    },
+    {
+      "id": "kids",
+      "name": "Kids’ Clothing",
+      "subcategories": [
+        {
+          "name": "Kids Frock",
+          "price": null,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Kids Outfit Stitching",
+          "price": null,
+          "priceType": "tbd"
+        }
+      ]
+    }
+  ]
+}
