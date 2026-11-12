@@ -51,7 +51,7 @@
           "priceType": "tbd"
         },
         {
-          "name": "BothPeck Neck Blouse",
+          "name": "Both Pack Neck Blouse",
           "price": 60,
           "priceType": "tbd"
         },
@@ -102,7 +102,7 @@
           "priceType": "tbd"
         },
         {
-          "name": "Jeans Alternations",
+          "name": "Jeans Alterations",
           "price": 15,
           "priceType": "tbd"
         },
@@ -156,6 +156,16 @@
         {
           "name": "Top Stitching",
           "price": 30,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Simple Kaftan",
+          "price": 35,
+          "priceType": "tbd"
+        },
+        {
+          "name": "Simple Kaftan with Lining",
+          "price": 60,
           "priceType": "tbd"
         }
       ]
