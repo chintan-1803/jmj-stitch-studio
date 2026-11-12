@@ -33,5 +33,13 @@
     "description": "A delighted customer loved the fitting of her blouse and was already looking forward to placing another order.",
     "category": "Customer satisfaction",
     "image": "assets/feedback/feedback-05.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Perfect Fit, Happy Customer!",
+    "description": "A happy customer appreciated the perfect fitting and length of her choli, praised our reasonable pricing, and expressed her willingness to return and recommend our services to others.",
+    "category": "Customer satisfaction",
+    "image": "assets/feedback/feedback-06.jpg"
   }
+
 ]
