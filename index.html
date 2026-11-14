@@ -1835,6 +1835,11 @@
         nav .jmj-nav-group {
             position: relative;
         }
+            /* Keep the About Us dropdown to the left of the appointment button. */
+            nav .jmj-nav-group:has(> a[href="#about"]) .jmj-nav-dropdown {
+                left: auto;
+                right: 0;
+            }
 
             nav .jmj-nav-group > a {
                 display: inline-block;
@@ -1879,6 +1884,18 @@
             nav .jmj-appointment-nav:hover {
                 filter: brightness(1.08);
             }
+
+        @media(min-width:1051px) {
+            nav .navlinks {
+                flex-wrap: nowrap;
+                gap: 13px;
+            }
+
+            nav .jmj-appointment-nav {
+                margin-left: 12px;
+                flex-shrink: 0;
+            }
+        }
 
         .jmj-appointment-dialog {
             border: 0;
@@ -1965,6 +1982,11 @@
             nav .jmj-nav-group {
                 width: 100%;
             }
+
+                nav .jmj-nav-group:has(> a[href="#about"]) .jmj-nav-dropdown {
+                    left: auto;
+                    right: auto;
+                }
 
             nav .jmj-nav-dropdown {
                 position: static;
