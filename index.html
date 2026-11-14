@@ -1806,9 +1806,8 @@
         .section-collapse-actions {
             display: flex;
             justify-content: flex-end;
-            width: 100%;
-            max-width: none;
-            margin: -12px 0 8px;
+            max-width: 850px;
+            margin: 0 auto 12px;
         }
 
         .section-collapse-toggle {
@@ -1830,6 +1829,161 @@
             .section-collapse-toggle[hidden] {
                 display: none;
             }
+
+
+        /* V10.4: Navigation and appointment enquiry additions only. */
+        nav .jmj-nav-group {
+            position: relative;
+        }
+
+            nav .jmj-nav-group > a {
+                display: inline-block;
+            }
+
+        nav .jmj-nav-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1001;
+            min-width: 190px;
+            background: var(--maroon);
+            padding: 10px 12px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            box-shadow: 0 10px 22px #21060544;
+        }
+
+            nav .jmj-nav-dropdown a {
+                display: block;
+                padding: 9px 8px;
+                white-space: nowrap;
+            }
+
+        nav .jmj-nav-group:hover .jmj-nav-dropdown,
+        nav .jmj-nav-group:focus-within .jmj-nav-dropdown {
+            display: block;
+        }
+
+        nav .jmj-appointment-nav {
+            background: var(--gold);
+            color: var(--maroon);
+            border: 0;
+            padding: 10px 13px;
+            border-radius: 7px;
+            cursor: pointer;
+            font: 700 12px var(--font-body);
+            white-space: nowrap;
+        }
+
+            nav .jmj-appointment-nav:hover {
+                filter: brightness(1.08);
+            }
+
+        .jmj-appointment-dialog {
+            border: 0;
+            padding: 0;
+            border-radius: 14px;
+            width: min(94vw, 500px);
+            max-height: 90dvh;
+            overflow: auto;
+            background: #fffaf3;
+            color: #432025;
+            box-shadow: 0 18px 70px #1d090955;
+        }
+
+            .jmj-appointment-dialog::backdrop {
+                background: #210605aa;
+            }
+
+        .jmj-appointment-body {
+            padding: 25px;
+        }
+
+        .jmj-appointment-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 14px;
+        }
+
+            .jmj-appointment-head h2 {
+                margin: 0 0 12px;
+                font-size: 29px;
+            }
+
+        .jmj-appointment-close {
+            border: 0;
+            background: transparent;
+            color: #432025;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        .jmj-appointment-body label {
+            display: block;
+            font-weight: 700;
+            margin: 14px 0 6px;
+        }
+
+        .jmj-appointment-body input, .jmj-appointment-body select, .jmj-appointment-body textarea {
+            box-sizing: border-box;
+            display: block;
+            width: 100%;
+            border: 1px solid #c9b4a2;
+            background: white;
+            color: #432025;
+            border-radius: 7px;
+            padding: 11px;
+            font: 15px var(--font-body);
+        }
+
+        .jmj-appointment-body textarea {
+            min-height: 85px;
+            resize: vertical;
+        }
+
+        .jmj-appointment-submit {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: 0;
+            border-radius: 7px;
+            background: var(--maroon);
+            color: #fff;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .jmj-appointment-note {
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 12px 0 0;
+        }
+
+        @media(max-width:1050px) {
+            nav .jmj-nav-group {
+                width: 100%;
+            }
+
+            nav .jmj-nav-dropdown {
+                position: static;
+                display: block;
+                border: 0;
+                box-shadow: none;
+                padding: 0 0 0 15px;
+            }
+
+                nav .jmj-nav-dropdown a {
+                    font-size: 14px;
+                    padding: 5px 8px;
+                }
+
+            nav .jmj-appointment-nav {
+                width: 100%;
+                min-height: 44px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1845,39 +1999,25 @@
                 ☰ Menu
             </button>
             <div class="navlinks" id="navlinks">
-                <a href="#home">
-                    Home
-                </a>
-                <a href="#about">
-                    Meet Vaishali
-                </a>
-                <a href="#vision-mission">
-                    Vision & Mission
-                </a>
-                <a href="#services">
-                    Services
-                </a>
-                <a href="#pricing">
-                    Pricing
-                </a>
-                <a href="#creations">
-                    Creations
-                </a>
-                <a href="#process">
-                    How It Works
-                </a>
-                <a href="#love">
-                    Customer Love
-                </a>
-                <a href="#collaborate">
-                    Collaborate
-                </a>
-                <a href="#faqs">
-                    FAQs
-                </a>
-                <a href="#contact">
-                    Contact
-                </a>
+                <a href="#home">Home</a>
+                <div class="jmj-nav-group">
+                    <a href="#services">Services &amp; Pricing</a>
+                    <div class="jmj-nav-dropdown">
+                        <a href="#services">Our Services</a>
+                        <a href="#pricing">Indicative Pricing</a>
+                    </div>
+                </div>
+                <a href="#creations">Our Creations</a>
+                <a href="#love">Customer Love</a>
+                <div class="jmj-nav-group">
+                    <a href="#about">About Us</a>
+                    <div class="jmj-nav-dropdown">
+                        <a href="#about">Meet Vaishali</a>
+                        <a href="#vision-mission">Vision &amp; Mission</a>
+                        <a href="#process">How It Works</a>
+                    </div>
+                </div>
+                <button class="jmj-appointment-nav" type="button" id="jmjOpenAppointment">Request an Appointment</button>
             </div>
         </div>
     </nav>
@@ -3048,5 +3188,67 @@
             });
         })();
     </script>
+
+    <!-- Appointment enquiry: details are sent only via WhatsApp, not stored. -->
+    <dialog id="jmjAppointmentDialog" class="jmj-appointment-dialog" aria-labelledby="jmjAppointmentTitle">
+        <div class="jmj-appointment-body">
+            <div class="jmj-appointment-head">
+                <h2 id="jmjAppointmentTitle">Request an Appointment</h2>
+                <button type="button" class="jmj-appointment-close" id="jmjCloseAppointment" aria-label="Close appointment form">&times;</button>
+            </div>
+            <form id="jmjAppointmentForm">
+                <label for="jmjCustomerName">Customer Name *</label>
+                <input id="jmjCustomerName" name="customerName" autocomplete="name" required maxlength="100" placeholder="Your name">
+                <label for="jmjService">Service Required *</label>
+                <select id="jmjService" name="service" required>
+                    <option value="">Select a service</option>
+                    <option>Blouse Stitching</option>
+                    <option>Salwar Suit / Kurti Stitching</option>
+                    <option>Lehenga / Chaniya Choli Stitching</option>
+                    <option>Western Dress / Custom Stitching</option>
+                    <option>Indian Wear Alterations</option>
+                    <option>Western Wear Alterations</option>
+                    <option>Kids Wear Stitching</option>
+                    <option>Other / General Enquiry</option>
+                </select>
+                <label for="jmjPreferredDate">Preferred Appointment Date (optional)</label>
+                <input type="date" id="jmjPreferredDate" name="preferredDate">
+                <label for="jmjRequirements">Additional Requirements (optional)</label>
+                <textarea id="jmjRequirements" name="requirements" maxlength="1000" placeholder="Tell us what you need..."></textarea>
+                <button type="submit" class="jmj-appointment-submit">Continue to WhatsApp</button>
+                <p class="jmj-appointment-note">WhatsApp will open with your details. Please press Send there. Appointments are confirmed by Vaishali after discussion. No enquiry details are stored on this website.</p>
+            </form>
+        </div>
+    </dialog>
+
+    <script>
+        /* V10.4: Only the new appointment enquiry form and menu closing behaviour. */
+        (() => {
+            const dialog = document.getElementById('jmjAppointmentDialog');
+            const form = document.getElementById('jmjAppointmentForm');
+            document.getElementById('jmjOpenAppointment').addEventListener('click', () => {
+                document.getElementById('navlinks').classList.remove('open');
+                dialog.showModal();
+            });
+            document.getElementById('jmjCloseAppointment').addEventListener('click', () => dialog.close());
+            dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+            document.getElementById('jmjPreferredDate').min = new Date().toLocaleDateString('en-CA');
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+                if (!form.reportValidity()) return;
+                const name = document.getElementById('jmjCustomerName').value.trim();
+                const service = document.getElementById('jmjService').value;
+                const date = document.getElementById('jmjPreferredDate').value || 'Flexible';
+                const requirements = document.getElementById('jmjRequirements').value.trim() || 'To be discussed';
+                if (!name || !service) return;
+                const message = `Hi JMJ Stitch Studio, I'd like to request an appointment.\n\nName: ${name}\nService: ${service}\nPreferred Date: ${date}\nRequirements: ${requirements}\n\nPlease let me know your availability.`;
+                window.open('https://wa.me/61473945892?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+            });
+            document.querySelectorAll('#navlinks a[href^="#"]').forEach(link => {
+                link.addEventListener('click', () => document.getElementById('navlinks').classList.remove('open'));
+            });
+        })();
+    </script>
+
 </body>
 </html>
