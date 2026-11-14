@@ -2087,8 +2087,8 @@
 
         @media (max-width: 1050px) {
             /* V10.8: Keep Instagram in the mobile header, not the expanded menu. */
-            nav .jmj-instagram-nav {
-                display: none;
+            nav .navlinks a.jmj-instagram-nav {
+                display: none !important;
             }
         }
     </style>
@@ -2127,6 +2127,9 @@
                         <a href="#process">How It Works</a>
                     </div>
                 </div>
+                <a class="jmj-instagram-nav" href="https://www.instagram.com/jmj_stitch_studio/" target="_blank" rel="noopener noreferrer" aria-label="Visit JMJ Stitch Studio on Instagram" title="Visit our Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="19" height="19" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.8" cy="6.4" r="1" fill="currentColor" stroke="none" /></svg>
+                </a>
                 <button class="jmj-appointment-nav" type="button" id="jmjOpenAppointment">Request an Appointment</button>
             </div>
         </div>
