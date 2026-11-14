@@ -2007,6 +2007,57 @@
             }
         }
 
+        /* V10.7: Instagram always visible next to Menu on mobile. */
+        nav .jmj-mobile-actions {
+            display: none;
+        }
+
+        @media (max-width: 1050px) {
+            nav .jmj-mobile-actions {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 10px;
+                margin-left: auto;
+                flex-shrink: 0;
+            }
+
+            nav .jmj-instagram-mobile-header {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 44px;
+                color: var(--gold);
+                text-decoration: none;
+                flex-shrink: 0;
+            }
+
+                nav .jmj-instagram-mobile-header svg {
+                    width: 24px;
+                    height: 24px;
+                }
+
+            nav .jmj-mobile-actions .menu {
+                display: block;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            nav .navin {
+                gap: 8px;
+            }
+
+            nav .jmj-mobile-actions {
+                gap: 4px;
+            }
+
+            nav .jmj-instagram-mobile-header {
+                width: 34px;
+            }
+        }
+
         /* V10.6: Instagram shortcut in the primary navigation. */
         nav .jmj-instagram-nav {
             display: inline-flex;
@@ -2035,15 +2086,10 @@
             }
 
         @media (max-width: 1050px) {
+            /* V10.8: Keep Instagram in the mobile header, not the expanded menu. */
             nav .jmj-instagram-nav {
-                width: 100%;
-                justify-content: flex-start;
-                padding: 10px 8px;
+                display: none;
             }
-
-                nav .jmj-instagram-nav .jmj-instagram-label {
-                    display: inline;
-                }
         }
     </style>
 </head>
@@ -2056,9 +2102,12 @@
                 </small>
                 JMJ Stitch Studio
             </a>
-            <button aria-controls="navlinks" aria-expanded="false" aria-label="Toggle navigation" class="menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
-                ☰ Menu
-            </button>
+            <div class="jmj-mobile-actions">
+                <a class="jmj-instagram-mobile-header" href="https://www.instagram.com/jmj_stitch_studio/" target="_blank" rel="noopener noreferrer" aria-label="Visit JMJ Stitch Studio on Instagram" title="Visit our Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="2.5" width="19" height="19" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.8" cy="6.4" r="1" fill="currentColor" stroke="none" /></svg>
+                </a>
+                <button aria-controls="navlinks" aria-expanded="false" aria-label="Toggle navigation" class="menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰ Menu</button>
+            </div>
             <div class="navlinks" id="navlinks">
                 <a href="#home">Home</a>
                 <div class="jmj-nav-group">
