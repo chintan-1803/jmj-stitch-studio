@@ -123,13 +123,25 @@
     "id": 21,
     "title": "Creation 21",
     "image": "assets/creations/creation-21.jpeg",
-    "alt": "Actual JMJ Stitch Studio blouse creation 20"
+    "alt": "Actual JMJ Stitch Studio blouse creation 21"
   },
   {
     "id": 22,
     "title": "Creation 22",
     "image": "assets/creations/creation-22.jpeg",
-    "alt": "Actual JMJ Stitch Studio blouse creation 20"
+    "alt": "Actual JMJ Stitch Studio blouse creation 22"
+  },
+  {
+    "id": 23,
+    "title": "Creation 23",
+    "image": "assets/creations/creation-23.jpeg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 23"
+  },
+  {
+    "id": 24,
+    "title": "Creation 24",
+    "image": "assets/creations/creation-24.jpeg",
+    "alt": "Actual JMJ Stitch Studio blouse creation 24"
   }
 
 
